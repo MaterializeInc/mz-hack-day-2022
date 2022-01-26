@@ -1,0 +1,14 @@
+default:
+  outputs:
+
+    dev:
+      type: materialize
+      threads: 1
+      host: materialized
+      port: 6875
+      user: materialize
+      pass: password
+      dbname: materialize
+      schema: public
+
+  target: dev
