@@ -6,7 +6,7 @@ services:
     depends_on:
       redpanda: { condition: service_healthy }
   redpanda:
-    image: docker.vectorized.io/vectorized/redpanda:v21.11.2
+    image: docker.vectorized.io/vectorized/redpanda:v21.11.3
     container_name: redpanda
     command:
      - redpanda start
