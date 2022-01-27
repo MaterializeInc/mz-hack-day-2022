@@ -1,4 +1,4 @@
 .DS_Store
-dbt/target/
-dbt/dbt_modules/
-dbt/logs/
+sample_project/dbt/target/
+sample_project/dbt/dbt_modules/
+sample_project/dbt/logs/
