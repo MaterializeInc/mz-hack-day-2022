@@ -1,0 +1,12 @@
+## This is an example of a yml file that allows you to document your Materialize sources 
+
+version: 2
+
+models:
+  - name: icao_mapping
+    description: This model generates a source on top of the icao24_mapping_airbus stream
+    
+  - name: rp_flight_information
+    description: This model generates a source on top of the flight_information stream from RedPanda
+                
+

@@ -1,0 +1,8 @@
+## Using the src_flight.yml file as an sample, create a yml file that 
+## documents your sources.
+
+version: 2
+
+models:
+  - name: source_example
+    description: description for the source file

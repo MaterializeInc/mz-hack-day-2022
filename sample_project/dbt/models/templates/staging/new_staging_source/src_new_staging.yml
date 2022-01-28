@@ -1,0 +1,11 @@
+## Using the flight.yml file as an sample, create a yml file that 
+## documents your staging models.
+
+version: 2
+
+models:
+  - name: stg_example
+    description: description of the staging example
+    columns:
+      - name: primary_key
+        description: "description of the primary_key"
