@@ -1,15 +1,7 @@
 version: 2
 
-sources:
-  - name: public
-    description: blablabla
-    tables:
-      - name: rp_flight_information
-        description: ""
-      - name: icao_mapping
-        description: ""
 models:
-  - name: v_flight_information
+  - name: stg_flight_information
     description: ""
     columns:
       - name: icao24
@@ -46,7 +38,7 @@ models:
         description: "Whether flight status indicates special purpose indicator."
       - name: position_source
         description: "Origin of this state’s position: 0 = ADS-B, 1 = ASTERIX, 2 = MLAT."
-  - name: v_icao_mapping
+  - name: staging_icao_mapping
     description: ""
     columns:
       - name: icao24
