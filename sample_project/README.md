@@ -8,7 +8,7 @@ This is a sample project with enough plumbing to spin up an end-to-end analytics
 <img width="650" alt="demo_overview" src="https://user-images.githubusercontent.com/23521087/151333471-98ad518d-5ac5-444e-b065-83e3aaa42748.png">
 </p>
 
-The setup uses Docker Compose to make it easier to bundle up all the services for our pipeline:
+The project uses Docker Compose to make it easier to bundle up all the services in the pipeline:
 
 * Data generator
 
@@ -19,6 +19,8 @@ The setup uses Docker Compose to make it easier to bundle up all the services fo
 * dbt
 
 * Metabase
+
+### Installation
 
 ### Getting the setup up and running
 
@@ -52,6 +54,10 @@ docker-compose down -v
 
 ## dbt
 
+the ["dbt and Materialize"](https://materialize.com/docs/guides/dbt/#document-and-test-a-dbt-project) guide.
+
+### Get in that shell!
+
 ```bash
 docker exec -it dbt /bin/bash
 ```
@@ -64,11 +70,23 @@ dbt --version
 dbt debug
 ```
 
+### Build and run your models
+
 ```bash
 dbt run
 ```
 
+### Generate documentation
+
+```bash
+dbt docs generate
+
+dbt docs serve
+```
+
 ## Redpanda
+
+### Check the source data
 
 ```bash
 docker-compose exec redpanda rpk topic list
@@ -78,21 +96,41 @@ docker-compose exec redpanda rpk topic list
 docker-compose exec redpanda rpk topic consume flight_information
 ```
 
+To exit the consumer, press **Ctrl+C**.
+
 ## Materialize
+
+### Inspect the database
 
 ```bash
 docker-compose run mzcli
 ```
 
 ```sql
-SHOW VIEWS;
+SHOW SOURCES;
+
+         name
+-----------------------
+ icao_mapping
+ rp_flight_information
 ```
+
+```sql
+SHOW VIEWS;
+
+          name
+------------------------
+ stg_flight_information
+ stg_icao_mapping
+```
+
+### Query the transformed data
 
 ## Metabase
 
-To visualize the results in [Metabase](https://www.metabase.com/):
+From here, you can pipe data out of Materialize. To visualize the results in [Metabase](https://www.metabase.com/):
 
-**1.** In a browser, navigate to <localhost:3030> (or <`host`:3030>, if running on a VM).
+**1.** In a browser, navigate to <localhost:3030>.
 
 **2.** Click **Let's get started**.
 
