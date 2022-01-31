@@ -88,6 +88,49 @@ docker-compose run mzcli
 SHOW VIEWS;
 ```
 
+Create source from Redpanda topic
+```sql
+CREATE MATERIALIZED SOURCE raw_fi FROM KAFKA BROKER 'redpanda:9092'
+TOPIC 'flight_information' FORMAT TEXT ;
+```
+
+Convert raw text to JSON object
+```sql
+CREATE VIEW json_fi AS (
+  SELECT CAST (text AS JSONB) AS data
+  FROM (SELECT * FROM raw_fi)
+) ;
+```
+
+Convert JSON object to columns
+```sql
+CREATE VIEW flight_information AS (
+  SELECT (data->>'baro_altitude')::decimal(6,4) AS baro_altitude,
+         (data->>'callsign')::string            AS callsign,
+         (data->>'geo_altitude')::decimal(6,4)  AS geo_altitude,
+         (data->>'icao24')::string              AS icao24,
+         (data->>'last_contact')::bigint        AS last_contact,
+         (data->>'latitude')::decimal(8,6)      AS latitude,
+         (data->>'longitude')::decimal(9,6)     AS longitude,
+         (data->>'on_ground')::boolean          AS on_ground,
+         (data->>'origin_country')::string      AS origin_country,
+         (data->>'position_source')::string     AS position_source,
+         (data->>'sensors')::string             AS sensors,
+         (data->>'spi')::boolean                AS spi,
+         (data->>'squawk')::string              AS squawk,
+         (data->>'time_position')::bigint       AS time_position,
+         (data->>'true_track')::string          AS true_track,
+         (data->>'velocity')::string            AS velocity,
+         (data->>'vertical_rate')::string       AS vertical_rate
+  FROM json_fi
+) ;
+```
+
+Try a simple query
+```sql
+SELECT * FROM flight_information WHERE origin_country = 'Malta' LIMIT 10 ;
+```
+
 ## Metabase
 
 To visualize the results in [Metabase](https://www.metabase.com/):
