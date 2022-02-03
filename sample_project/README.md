@@ -64,6 +64,11 @@ dbt --version
 dbt debug
 ```
 
+
+```bash
+dbt deps
+```
+
 ```bash
 dbt run
 ```
