@@ -2,3 +2,4 @@
 sample_project/dbt/target/
 sample_project/dbt/dbt_modules/
 sample_project/dbt/logs/
+sample_project/dbt/dbt_packages
