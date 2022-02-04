@@ -1,0 +1,7 @@
+## dbt Packages are great way to speed up your development. The Materialize
+## package helpful macros to help you write SQL and tests for your project.
+## https://hub.getdbt.com/materializeinc/materialize_dbt_utils/latest
+## To use it, just run `dbt deps`
+packages:
+  - package: MaterializeInc/materialize_dbt_utils
+    version: 0.1.0

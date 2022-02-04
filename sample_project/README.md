@@ -123,6 +123,12 @@ We've created a few core models that take care of defining [_sources_](https://m
 
 * `stg_icao_mapping.sql`
 
+, [a Materialize package](https://hub.getdbt.com/materializeinc/materialize_dbt_utils/latest/) to help you write SQL and test,
+
+```bash
+dbt deps
+```
+
 , [run](https://docs.getdbt.com/reference/commands/run) the dbt models:
 
 ```bash
