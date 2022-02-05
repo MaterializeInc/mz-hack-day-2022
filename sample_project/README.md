@@ -20,13 +20,15 @@ The project uses [Docker Compose](https://docs.docker.com/get-started/08_using_c
 
 * **Materialize**
 
-  Materialize is set up to consume streaming flight information from Redpanda, as well as static aircraft reference data. The sources and transformations will be defined using dbt! We've also included `mzcli` (a `psql`-like SQL client) in the setup, so you can easily connect to the running Materialize instance.
+  Materialize is set up to consume streaming flight information from Redpanda, as well as static aircraft reference data from a JSON file. Any sources and transformations are defined through dbt! We've also included `mzcli` (a `psql`-like SQL client) in the setup, so you can easily connect to the running Materialize instance.
 
 * **dbt**
 
-  dbt acts as the SQL transformation layer in the setup, and is bootstrapped with some examples and templates to get you going.
+  dbt acts as the SQL transformation layer in the setup, and is bootstrapped with some examples and templates to get you going. Using the [`dbt-materialize`](https://docs.getdbt.com/reference/warehouse-profiles/materialize-profile) adapter, you can build and run models to transform the streaming source data in real time.
 
 * **Metabase**
+
+   There are different ways to push data out of Materialize. Here, we included [Metabase](https://www.metabase.com/), a neat BI tool that lets you visualize the ever-updating results of your transformations in a dashboard!
 
 ### Installation
 
@@ -44,7 +46,7 @@ We recommend running Docker with at least 2 CPUs and 8GB of memory, so double ch
 If you're on a M1 Mac, first run:
 
 ```bash
-export ARCH=linux/arm64 MIMG=iwalucas`
+export ARCH=linux/arm64 MIMG=iwalucas
 ```
 
 To get the setup up and running:
@@ -123,12 +125,6 @@ We've created a few core models that take care of defining [_sources_](https://m
 
 * `stg_icao_mapping.sql`
 
-, [a Materialize package](https://hub.getdbt.com/materializeinc/materialize_dbt_utils/latest/) to help you write SQL and test,
-
-```bash
-dbt deps
-```
-
 , [run](https://docs.getdbt.com/reference/commands/run) the dbt models:
 
 ```bash
@@ -136,6 +132,12 @@ dbt run
 ```
 
 The first time you run a dbt model on top of Materialize…well, you never have to run it again! No matter how much or how frequently your data arrives, your models will stay up-to-date without manual or configured refreshes.
+
+, [a Materialize package](https://hub.getdbt.com/materializeinc/materialize_dbt_utils/latest/) to help you write SQL and test,
+
+```bash
+dbt deps
+```
 
 ### Generate documentation
 
@@ -151,7 +153,7 @@ The documentation website should be available at: [http://localhost:8000/](http:
 
 ## Materialize
 
-If you're completely new to Materialize, you can refer to our [getting started guide](https://materialize.com/docs/get-started/) for .
+If you're completely new to Materialize, you can refer to our [getting started guide](https://materialize.com/docs/get-started/) for a.
 
 ### Inspect the database
 
