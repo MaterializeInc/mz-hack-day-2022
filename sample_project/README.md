@@ -75,7 +75,7 @@ docker-compose down -v
 
 ### Check the source data
 
-To tap into and manage Redpanda, you can use their neat [rpk](https://docs.redpanda.com/docs/reference/rpk-commands/) CLI. For example, to check that the topic has been created, run:
+To tap into and manage Redpanda, you can use their handy [rpk](https://docs.redpanda.com/docs/reference/rpk-commands/) CLI. For example, to check that the topic has been created, run:
 
 ```bash
 docker-compose exec redpanda rpk topic list
@@ -125,19 +125,15 @@ We've created a few core models that take care of defining [_sources_](https://m
 
 * `stg_icao_mapping.sql`
 
-, [run](https://docs.getdbt.com/reference/commands/run) the dbt models:
+To [run](https://docs.getdbt.com/reference/commands/run) the models, and optionally install the [`materialize-dbt-utils`](https://hub.getdbt.com/materializeinc/materialize_dbt_utils/latest/) package:
 
 ```bash
+#dbt deps
+
 dbt run
 ```
 
 The first time you run a dbt model on top of Materialize…well, you never have to run it again! No matter how much or how frequently your data arrives, your models will stay up-to-date without manual or configured refreshes.
-
-, [a Materialize package](https://hub.getdbt.com/materializeinc/materialize_dbt_utils/latest/) to help you write SQL and test,
-
-```bash
-dbt deps
-```
 
 ### Generate documentation
 
@@ -153,7 +149,7 @@ The documentation website should be available at: [http://localhost:8000/](http:
 
 ## Materialize
 
-If you're completely new to Materialize, you can refer to our [getting started guide](https://materialize.com/docs/get-started/) for a.
+If you're completely new to Materialize, you can refer to our [getting started guide](https://materialize.com/docs/get-started/) for a quick rundown.
 
 ### Inspect the database
 
@@ -180,6 +176,8 @@ SHOW VIEWS;
  stg_flight_information
  stg_icao_mapping
 ```
+
+You'll notice that you're not able to `SELECT` from any of the existing sources and views.
 
 ## Metabase
 
