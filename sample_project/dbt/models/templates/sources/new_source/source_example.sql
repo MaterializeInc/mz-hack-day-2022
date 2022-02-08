@@ -1,7 +1,7 @@
 /*
 
-Using the flight source files as an example, create dbt models that define 
-your Materialize source(s) on top of the streams.
+Using the flight source files as an example, create dbt models that define
+your Materialize source(s) on top of Redpanda.
 
 */
 
@@ -16,7 +16,7 @@ your Materialize source(s) on top of the streams.
 {% endset %}
 
 CREATE SOURCE {{ source_name }}
-FROM KAFKA BROKER 'redpanda:9092' TOPIC 'source_name'
+FROM KAFKA BROKER 'redpanda:9092' TOPIC 'topic_name'
   KEY FORMAT BYTES
   VALUE FORMAT BYTES
 ENVELOPE UPSERT;

@@ -1,6 +1,6 @@
-/* 
+/*
 
-The purpose of this staging model is to create a flight_information staging model 
+The purpose of this model is to create a flight_information staging model
 with light transformations on top of the source.
 
 */
@@ -10,28 +10,28 @@ with light transformations on top of the source.
 ) }}
 
 
-with source as (
-    
-    select * from {{ ref('rp_flight_information') }}
-    
-),
+WITH source AS (
 
-converted as (
-    
-    select convert_from(data, 'utf8') as data from source
+    SELECT * FROM {{ ref('rp_flight_information') }}
 
 ),
 
-casted as (
-    
-    select cast(data as jsonb) as data from converted
-            
+converted AS (
+
+    SELECT convert_from(data, 'utf8') AS data FROM source
+
 ),
 
-renamed as (
+casted AS (
 
-    select 
-    
+    SELECT cast(data AS jsonb) AS data FROM converted
+
+),
+
+renamed AS (
+
+    SELECT
+
        (data->>'icao24')::string as icao24,
        (data->>'callsign')::string as callsign,
        (data->>'origin_country')::string as origin_country,
@@ -49,9 +49,9 @@ renamed as (
        (data->>'squawk')::string as squawk,
        (data->>'spi')::string as spi,
        (data->>'position_source')::string as position_source
-     
-    from casted
-    
+
+    FROM casted
+
 )
 
-select * from renamed
+SELECT * FROM renamed

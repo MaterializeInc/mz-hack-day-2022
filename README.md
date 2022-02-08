@@ -48,12 +48,12 @@ There's a lot more you can do as you ramp up! In case you need some ideas, here 
 
 | **Tool**       | **Challenge**            |
 | -------------- | ------------------------ |
-| Materialize    | Replace the JSON file with a Postgres database that pushes changes to the aircraft reference data into Materialize, either through [Redpanda+Debezium or directly](https://materialize.com/docs/guides/cdc-postgres/)                       |
+| Materialize    | Replace the JSON file with a Postgres database that pushes changes to the aircraft reference data into Materialize, either through [Redpanda+Debezium or directly](https://materialize.com/docs/guides/cdc-postgres/).                       |
 | Materialize    | Push data from a materialized view to a web app using [`TAIL`](https://materialize.com/docs/sql/tail/). You can use our [Node.js and Materialize guide](https://materialize.com/docs/guides/node-js/) as a reference! |
-| Redpanda       | Create a producer for a new data source or adapt the existing one to use [pandaproxy](https://redpanda.com/blog/pandaproxy/) instead |
-| Redpanda       | Give [WASM transforms (beta)](https://redpanda.com/blog/data-transformation-engine-with-wasm-runtime/) a try for data pre-processing (_e.g._ cleaning, masking) |
-| dbt            | Add a materialized view model that joins streaming data from Redpanda with the static reference data. Check the provided [examples](/sample_project/dbt/models/examples) and [templates](/dbt/models/templates) for pointers. |
-| dbt            | Incorporate macros from the [`materialize-dbt-utils`](https://hub.getdbt.com/materializeinc/materialize_dbt_utils/latest/) package into your models                  |
+| Redpanda       | Create a producer for a new data source or adapt the existing one to use [pandaproxy](https://redpanda.com/blog/pandaproxy/) instead. |
+| Redpanda       | Give [WASM transforms (beta)](https://redpanda.com/blog/data-transformation-engine-with-wasm-runtime/) a try for data pre-processing (_e.g._ cleaning, masking). |
+| dbt            | Add a materialized view model that joins streaming data from Redpanda with the static reference data. Check the provided [examples](/sample_project/dbt/models/examples) and [templates](/sample_project/dbt/models/templates) for pointers. |
+| dbt            | Incorporate macros from the [`materialize-dbt-utils`](https://hub.getdbt.com/materializeinc/materialize_dbt_utils/latest/) package into your models.                  |
 
 ## Resources
 

@@ -1,5 +1,7 @@
-/* Using the staging models in the staging flight folder as an example,
-create staging models to do light transformations on your declared sources
+/*
+
+Using the staging models in the staging flight folder as an example,
+create staging models to do light transformations on your declared sources.
 
 */
 
@@ -8,4 +10,4 @@ create staging models to do light transformations on your declared sources
     materialized ='view'
 ) }}
 
-select * from {{ ref('source_example') }}
+SELECT * FROM {{ ref('source_example') }}

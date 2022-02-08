@@ -12,7 +12,7 @@ The project uses [Docker Compose](https://docs.docker.com/get-started/08_using_c
 
 * **Data generator**
 
-  Finding streaming data to play with isn't always a breeze, so we wired up a data generator that polls the [OpenSky Network API](https://openskynetwork.github.io/opensky-api/index.html) continuously to save you some time! For details like poll frequency and message schema, or just a template to create a message producer for a different source of data, check the [`data-generator` directory](/data-generator).
+  Finding streaming data to play with isn't always a breeze, so we wired up a data generator that polls the [OpenSky Network API](https://openskynetwork.github.io/opensky-api/index.html) continuously to save you some time! For details like poll frequency and message schema, or just a template to create a message producer for a different source of data, check the [`data-generator` directory](/data-generator/README.md).
 
 * **Redpanda**
 
@@ -91,7 +91,7 @@ To exit the consumer, press **Ctrl+C**.
 
 ## dbt
 
-If this is your first time trying out dbt with Materialize, our [dbt + Materialize guide](https://materialize.com/docs/guides/dbt/#document-and-test-a-dbt-project) should give you a good overview of the basic concepts and supported materializations.
+If this is your first time trying out dbt with Materialize, our [dbt + Materialize guide](https://materialize.com/docs/guides/dbt/) should give you a good overview of the basic concepts and supported materializations.
 
 ### Get in that shell!
 
@@ -113,7 +113,7 @@ dbt debug
 
 > **Note:** any changes you make to the `/dbt` directory locally, like adding new models, will be shipped to the container automatically.
 
-We've created a few core models that take care of defining [_sources_](https://materialize.com/docs/overview/api-components/#source-components) in Materialize:
+We've created a few core models that take care of defining [_sources_](https://materialize.com/docs/overview/api-components/#sources) in Materialize:
 
 * `rp_flight_information.sql`
 
@@ -125,10 +125,10 @@ We've created a few core models that take care of defining [_sources_](https://m
 
 * `stg_icao_mapping.sql`
 
-To [run](https://docs.getdbt.com/reference/commands/run) the models, and optionally install the [`materialize-dbt-utils`](https://hub.getdbt.com/materializeinc/materialize_dbt_utils/latest/) package:
+To (optionally) install the [`materialize-dbt-utils`](https://hub.getdbt.com/materializeinc/materialize_dbt_utils/latest/) package and [run](https://docs.getdbt.com/reference/commands/run) the models:
 
 ```bash
-#dbt deps
+dbt deps
 
 dbt run
 ```
@@ -177,7 +177,7 @@ SHOW VIEWS;
  stg_icao_mapping
 ```
 
-You'll notice that you're not able to `SELECT` from any of the existing sources and views.
+You'll notice that you're not able to `SELECT` from any of the existing sources or staging views. This is because none of these objects are _materialized_!
 
 ## Metabase
 

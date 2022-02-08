@@ -1,3 +1,8 @@
+## Aircraft reference data
+
+[OpenSky aircraft database](https://opensky-network.org/datasets/metadata/)
+
+
 ```javascript
 {
 	"icao24":"06a0d6",

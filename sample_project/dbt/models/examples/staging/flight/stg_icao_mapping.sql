@@ -1,7 +1,7 @@
-/* 
+/*
 
-The purpose of this staging model is to create a icao_mapping staging model 
-with light transformations on top of the source
+The purpose of this staging model is to create a icao_mapping staging model
+with light transformations on top of the source.
 
 */
 
@@ -10,28 +10,28 @@ with light transformations on top of the source
 ) }}
 
 
-with source as (
-    
-    select * from {{ ref('icao_mapping') }}
-    
-),
+WITH source AS (
 
-converted as (
-    
-    select convert_from(data, 'utf8') as data from source
+    SELECT * FROM {{ ref('icao_mapping') }}
 
 ),
 
-casted as (
-    
-    select cast(data as jsonb) as data from converted
-            
+converted AS (
+
+    SELECT convert_from(data, 'utf8') AS data FROM source
+
 ),
 
-renamed as (
+casted AS (
 
-    select 
-    
+    SELECT cast(data AS jsonb) AS data FROM converted
+
+),
+
+renamed AS (
+
+    SELECT
+
     (data->>'icao24')::string AS icao24,
            (data->>'manufacturericao')::string AS manufacturericao,
            (data->>'manufacturername')::string AS manufacturername,
@@ -43,9 +43,9 @@ renamed as (
            (data->>'operatoricao')::string AS operatoricao,
            (data->>'built')::string AS built,
            (data->>'categorydescription')::string AS categorydescription
-     
-    from casted
-    
+
+    FROM casted
+
 )
 
-select * from renamed
+SELECT * FROM renamed
