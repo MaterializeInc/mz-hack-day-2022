@@ -1,7 +1,8 @@
 ## Aircraft reference data
 
-[OpenSky aircraft database](https://opensky-network.org/datasets/metadata/)
+The `icao24_mapping_airbus.json.gz` data set is a **sample** of the [OpenSky[^1] aircraft database](https://opensky-network.org/datasets/metadata/), and contains data for Airbus aircrafts only.
 
+**Example:**
 
 ```javascript
 {
@@ -18,3 +19,5 @@
 	"categorydescription":"Large (75000 to 300000 lbs)"
 }
 ```
+
+[^1]: The OpenSky Network, http://www.opensky-network.org

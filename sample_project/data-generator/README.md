@@ -1,5 +1,9 @@
 # OpenSky Data Generator
 
+The `opensky.py` data generator pulls live flight information data from the [OpenSky REST API](https://openskynetwork.github.io/opensky-api/rest.html) [^1] **every 15 seconds**, and uses the [Kafka Python client](https://kafka-python.readthedocs.io/en/master/) (`kafka-python`) to push events into Redpanda.
+
+**Example:**
+
 ```javascript
 {
 	"icao24": "c00734",
@@ -22,11 +26,13 @@
 }
 ```
 
-[](../data/)
+The flight information events can be enriched with the sample aircraft reference data provided in [`/data`](../data) based on the `icao24` field.
+
+**Example:**
 
 ```javascript
 {
-	"icao24":"06a0d6",
+	"icao24":"c00734",
 	"manufacturericao":"AIRBUS",
 	"manufacturername":"Airbus",
 	"model":"ACJ319 115X",
@@ -39,6 +45,8 @@
 	"categorydescription":"Large (75000 to 300000 lbs)"
 }
 ```
+
+[^1]: The OpenSky Network, http://www.opensky-network.org
 
 ## Tweaking the code
 

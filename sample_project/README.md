@@ -75,7 +75,7 @@ docker-compose down -v
 
 ### Check the source data
 
-To tap into and manage Redpanda, you can use their handy [rpk](https://docs.redpanda.com/docs/reference/rpk-commands/) CLI. For example, to check that the topic has been created, run:
+To tap into and manage Redpanda, you can use the [rpk](https://docs.redpanda.com/docs/reference/rpk-commands/) CLI. For example, to check that the topic has been created, run:
 
 ```bash
 docker-compose exec redpanda rpk topic list
@@ -173,15 +173,16 @@ SHOW VIEWS;
 
           name
 ------------------------
+ fct_flight
  stg_flight_information
  stg_icao_mapping
 ```
 
-You'll notice that you're not able to `SELECT` from any of the existing sources or staging views. This is because none of these objects are _materialized_!
+You'll notice that you're only able to `SELECT` from `fct_flight` — this is because it the only [**materialized** view](https://materialize.com/docs/overview/api-components/#materialized-views)! This view is incrementally updated as new data streams in, so you get fresh and correct results with low latency. Behind the scenes, Materialize is indexing the results of the embedded query in memory.
 
 ## Metabase
 
-To visualize the results in [Metabase](https://www.metabase.com/):
+To visualize the results in Metabase:
 
 **1.** In a browser, navigate to <localhost:3030>.
 
@@ -205,3 +206,7 @@ Database password | Leave empty
 **5.** Click **Ask a question** -> **Native query**.
 
 **6.** Under **Select a database**, choose **opensky**.
+
+**7.** In the query editor, enter a query and hit **Save**. You need to do this for each visualization you’re planning to add to the dashboard that Metabase prompts you to create.
+
+**8.** Once you have a dashboard set up, you can manually set the refresh rate to 1 second by adding `#refresh=1 to the end of the URL and opening the modified URL in a new tab.
