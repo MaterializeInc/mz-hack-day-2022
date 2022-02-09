@@ -8,7 +8,7 @@ models. Don't forget to document and apply tests to any dbt model models you hav
 
 {{ config(
     enabled = false,
-    materialized ='source'
+    materialized ='materializedview'
 ) }}
 
 

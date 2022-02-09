@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: fct_flight
+    description: ""
+    columns:
+      - name: icao24
+        description: "Unique ICAO 24-bit address of the transponder in hex string representation."
+      - name: manufacturername
+        description: ""
+      - name: model
+        description: ""
+      - name: operator
+        description: ""
+      - name: origin_country
+        description: ""
+      - name: time_position
+        description: ""
+      - name: longitude
+        description: ""
+      - name: latitude
+        description: ""

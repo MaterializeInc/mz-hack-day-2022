@@ -38,7 +38,7 @@ models:
         description: "Whether flight status indicates special purpose indicator."
       - name: position_source
         description: "Origin of this state’s position: 0 = ADS-B, 1 = ASTERIX, 2 = MLAT."
-  - name: staging_icao_mapping
+  - name: stg_icao_mapping
     description: ""
     columns:
       - name: icao24
