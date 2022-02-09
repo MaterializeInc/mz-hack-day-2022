@@ -12,7 +12,7 @@ The project uses [Docker Compose](https://docs.docker.com/get-started/08_using_c
 
 * **Data generator**
 
-  Finding streaming data to play with isn't always a breeze, so we wired up a data generator that polls the [OpenSky Network API](https://openskynetwork.github.io/opensky-api/index.html) continuously to save you some time! For details like poll frequency and message schema, or just a template to create a message producer for a different source of data, check the [`data-generator` directory](/data-generator/README.md).
+  Finding streaming data to play with isn't always a breeze, so we wired up a data generator that polls the [OpenSky Network API](https://openskynetwork.github.io/opensky-api/index.html) continuously to save you some time! For details like poll frequency and message schema, or just a template to create a message producer for a different source of data, check the [`data-generator` directory](./data-generator/README.md).
 
 * **Redpanda**
 
@@ -178,7 +178,7 @@ SHOW VIEWS;
  stg_icao_mapping
 ```
 
-You'll notice that you're only able to `SELECT` from `fct_flight` — this is because it the only [**materialized** view](https://materialize.com/docs/overview/api-components/#materialized-views)! This view is incrementally updated as new data streams in, so you get fresh and correct results with low latency. Behind the scenes, Materialize is indexing the results of the embedded query in memory.
+You'll notice that you're only able to `SELECT` from `fct_flight` — this is because it is the only [**materialized** view](https://materialize.com/docs/overview/api-components/#materialized-views)! This view is incrementally updated as new data streams in, so you get fresh and correct results with low latency. Behind the scenes, Materialize is indexing the results of the embedded query in memory.
 
 ## Metabase
 
@@ -209,4 +209,4 @@ Database password | Leave empty
 
 **7.** In the query editor, enter a query and hit **Save**. You need to do this for each visualization you’re planning to add to the dashboard that Metabase prompts you to create.
 
-**8.** Once you have a dashboard set up, you can manually set the refresh rate to 1 second by adding `#refresh=1 to the end of the URL and opening the modified URL in a new tab.
+**8.** Once you have a dashboard set up, you can manually set the refresh rate to 1 second by adding `#refresh=1` to the end of the URL and opening the modified URL in a new tab.
