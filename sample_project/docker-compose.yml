@@ -45,7 +45,6 @@ services:
       target: dbt-third-party
       args:
         - build_for=${ARCH}
-        - dbt_third_party=dbt-materialize==1.0.1
     container_name: dbt
     ports:
       - 8000:8080
