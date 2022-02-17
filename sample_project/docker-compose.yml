@@ -31,7 +31,7 @@ services:
   materialized:
     image: materialize/materialized:v0.20.0
     container_name: materialized
-    command: -w1 --disable-telemetry
+    command: -w1
     ports:
       - 6875:6875
     volumes:
