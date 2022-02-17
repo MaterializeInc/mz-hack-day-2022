@@ -184,7 +184,7 @@ You'll notice that you're only able to `SELECT` from `fct_flight` — this is be
 
 To visualize the results in Metabase:
 
-**1.** In a browser, navigate to <localhost:3030>.
+**1.** In a browser, navigate to [http://localhost:3030/](http://localhost:3030/).
 
 **2.** Click **Let's get started**.
 
