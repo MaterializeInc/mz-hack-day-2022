@@ -31,6 +31,7 @@ services:
   materialized:
     image: materialize/materialized:v0.20.0
     container_name: materialized
+    command: -w1
     ports:
       - 6875:6875
     volumes:
@@ -46,7 +47,7 @@ services:
         - build_for=${ARCH}
     container_name: dbt
     ports:
-      - 8080:8080
+      - 8000:8080
     volumes:
       - ./dbt/profiles.yml:/root/.dbt/profiles.yml
       - ./dbt/:/usr/app/dbt
