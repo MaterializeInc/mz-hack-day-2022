@@ -29,7 +29,7 @@ services:
      - 8082:8082
     healthcheck: { test: curl -f localhost:9644/v1/status/ready, interval: 1s, start_period: 30s }
   materialized:
-    image: materialize/materialized:v0.17.0
+    image: materialize/materialized:v0.20.0
     container_name: materialized
     command: -w1 --disable-telemetry
     ports:
@@ -45,7 +45,7 @@ services:
       target: dbt-third-party
       args:
         - build_for=${ARCH}
-        - dbt_third_party=dbt-materialize
+        - dbt_third_party=dbt-materialize==1.0.1
     container_name: dbt
     ports:
       - 8000:8080
