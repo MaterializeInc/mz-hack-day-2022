@@ -50,6 +50,8 @@ ENV LANG=C.UTF-8
 
 # Update python
 RUN python -m pip install --upgrade pip setuptools wheel --no-cache-dir
+# Pin MarkupSafe to work around CT-255 (https://github.com/dbt-labs/dbt-core/issues/4745#issuecomment-1043953804)
+RUN python -m pip install --force-reinstall MarkupSafe==2.0.1
 
 # Set docker basics
 WORKDIR /usr/app/dbt/
