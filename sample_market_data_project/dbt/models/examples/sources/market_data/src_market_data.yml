@@ -1,0 +1,10 @@
+## This is an example of a .yml file that allows you to document your Materialize sources
+
+version: 2
+
+models:
+  - name: security_data
+    description: This model creates a source based on the security reference data
+
+  - name: rp_market_data
+    description: This model creates a source based on the kf-mktdata-ticks topic in Redpanda

@@ -2,7 +2,7 @@
 ##locally in a .dbt folder locally. For the purpose of this hack_day, we have included it
 ## for ease
 
-materialize_hack_day_2022:
+sample-market-data:
   outputs:
 
     dev:

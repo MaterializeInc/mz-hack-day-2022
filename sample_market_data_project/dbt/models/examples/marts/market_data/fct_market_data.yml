@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: fct_market_data
+    description: "Market data materialized view"
+    columns:
+      - name: ticker
+        description: "Unique security identification code."
+      - name: company_name
+        description: "Name of company"
+      - name: sector
+        description: "Sector company operates in"
+      - name: industry
+        description: "Industry of company"
+      - name: business_summary
+        description: "Long summary of company's business description"
+      - name: website
+        description: "Company website URL"
+      - name: logo_url
+        description: "URL of company logo"
+      - name: bid_price
+        description: "Bid price of security"
+      - name: ask_price
+        description: "Ask price of security"
+      - name: current_price
+        description: "Current price of security"
