@@ -114,7 +114,7 @@ RUN python -m pip install --no-cache-dir "git+https://github.com/dbt-labs/dbt-sp
 # dbt-third-party
 ##
 FROM dbt-core as dbt-third-party
-RUN python -m pip install --no-cache-dir "dbt-materialize==1.0.1"
+RUN python -m pip install --no-cache-dir "dbt-materialize"
 
 ##
 # dbt-all
