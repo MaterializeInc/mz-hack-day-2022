@@ -29,7 +29,7 @@ services:
      - 8082:8082
     healthcheck: { test: curl -f localhost:9644/v1/status/ready, interval: 1s, start_period: 30s }
   materialized:
-    image: materialize/materialized:v0.21.0
+    image: materialize/materialized:v0.26.0
     container_name: materialized
     command: -w1
     ports:
@@ -40,12 +40,9 @@ services:
     image: materialize/cli
     container_name: mzcli
   dbt:
-    build:
-      context: ./dbt
-      target: dbt-third-party
-      args:
-        - build_for=${ARCH}
+    build: ./dbt
     container_name: dbt
+    init: true
     ports:
       - 8000:8080
     volumes:
