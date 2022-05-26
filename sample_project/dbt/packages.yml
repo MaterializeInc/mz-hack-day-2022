@@ -4,4 +4,4 @@
 ## To use it, just run `dbt deps`
 packages:
   - package: MaterializeInc/materialize_dbt_utils
-    version: 0.1.0
+    version: 0.4.0
