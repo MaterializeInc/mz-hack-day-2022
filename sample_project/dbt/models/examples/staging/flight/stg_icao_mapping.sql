@@ -12,7 +12,7 @@ with light transformations on top of the source.
 
 WITH source AS (
 
-    SELECT * FROM {{ ref('icao_mapping') }}
+    SELECT * FROM {{ source('file','icao_mapping') }}
 
 ),
 

@@ -12,7 +12,7 @@ with light transformations on top of the source.
 
 WITH source AS (
 
-    SELECT * FROM {{ ref('rp_flight_information') }}
+    SELECT * FROM {{ source('redpanda','rp_flight_information') }}
 
 ),
 

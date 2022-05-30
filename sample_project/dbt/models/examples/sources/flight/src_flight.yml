@@ -2,9 +2,21 @@
 
 version: 2
 
+sources:
+  - name: file
+    schema: public
+    tables:
+      - name: icao_mapping
+
+  - name: redpanda
+    schema: public
+    tables:
+      - name: rp_flight_information
+
 models:
   - name: icao_mapping
-    description: This model creates a source based on the aircraft reference static dataset
-
+    docs:
+      show: false
   - name: rp_flight_information
-    description: This model creates a source based on the flight_information topic in Redpanda
+    docs:
+      show: false

@@ -7,16 +7,23 @@ models:
       - name: icao24
         description: "Unique ICAO 24-bit address of the transponder in hex string representation."
       - name: manufacturername
-        description: ""
+        description: "Aircraft manufacturer name."
       - name: model
-        description: ""
+        description: "Aircraft model."
       - name: operator
-        description: ""
+        description: "Aircraft operator."
       - name: origin_country
-        description: ""
+        description: "Country name inferred from the ICAO 24-bit address."
+        meta:
+          metabase.semantic_type: type/Country
       - name: time_position
-        description: ""
+        description: "Unix timestamp (seconds) for the last position update. Can be null if no position report was received by OpenSky within the past 15s."
       - name: longitude
-        description: ""
+        description: "WGS-84 longitude in decimal degrees. Can be null."
+        data_type: Longitude
+        meta:
+          metabase.semantic_type: type/Longitude
       - name: latitude
-        description: ""
+        description: "WGS-84 latitude in decimal degrees. Can be null."
+        meta:
+          metabase.semantic_type: type/Latitude
