@@ -46,7 +46,7 @@ We recommend running Docker with at least 2 CPUs and 8GB of memory, so double ch
 If you're on a M1 Mac, first run:
 
 ```bash
-export ARCH=linux/arm64 MIMG=iwalucas
+export MIMG=iwalucas
 ```
 
 To get the setup up and running:
