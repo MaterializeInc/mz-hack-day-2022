@@ -1,3 +1,5 @@
+> :warning: **This branch includes examples for an unsupported version of Materialize (0.26.0).**
+
 # Materialize + Redpanda + dbt Hack Day
 
 [![Slack Badge](https://img.shields.io/badge/Slack-%23hack--day?style=flat&logo=slack&link=https://materializecommunity.slack.com/archives/C031905K62Y)](https://materializecommunity.slack.com/archives/C031905K62Y)
