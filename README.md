@@ -1,4 +1,4 @@
-> :warning: **This branch includes examples for an unsupported version of Materialize (0.26.0).**
+> :warning: **This branch includes examples for an unsupported version of Materialize (0.26.x).**
 
 # Materialize + Redpanda + dbt Hack Day
 
